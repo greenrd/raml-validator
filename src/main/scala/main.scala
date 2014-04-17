@@ -2,6 +2,7 @@ import java.io.{PrintWriter, File}
 import org.raml.emitter.RamlEmitter
 import org.raml.model.Raml
 import org.raml.parser.visitor.{RamlDocumentBuilder, RamlValidationService}
+import org.raml.validation.ValidationLogger
 import scala.util.{Failure, Success, Try}
 
 object Main {
@@ -25,7 +26,11 @@ object Main {
         println( s"""Validating file "${args(resource + 1)}"""")
         Try(new RamlDocumentBuilder().build(new File(args(resource + 1)))) match {
           case Success(v) => println("Validation successful!")
-          case Failure(e) => println("Error: " + e.getMessage)
+          case Failure(e) => {
+            println("Failed in parsing your raml")
+            println(ValidationLogger.history.head)
+            println("Exception message : \n" + e.getMessage)
+          }
         }
       }
 
@@ -41,7 +46,11 @@ object Main {
           writer.flush()
         } match {
           case Success(_) => println("Finished")
-          case Failure(e) => println("Error: " + e.getMessage)
+          case Failure(e) => {
+            println("Failed in parsing your raml")
+            println(ValidationLogger.history.head)
+            println("Exception message : \n" + e.getMessage)
+          }
         }
 
       }
