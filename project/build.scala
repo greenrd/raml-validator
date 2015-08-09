@@ -5,14 +5,14 @@ import AssemblyKeys._
 
 object Build extends Build {
 
-  lazy val raml = RootProject(uri("https://github.com/asikorski/raml-scala-parser.git#%s".format("v0.8.4")))
+  lazy val raml = RootProject(uri("https://github.com/greenrd/raml-scala-parser.git"))
 
   lazy val defaultSettings =
     Defaults.defaultSettings ++
       Seq(
         name := "raml-validator",
         version := "1.0",
-        scalaVersion := "2.10.1",
+        scalaVersion := "2.11.7",
         scalacOptions := Seq(
           "-feature",
           "-language:implicitConversions",
