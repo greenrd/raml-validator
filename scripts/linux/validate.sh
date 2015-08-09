@@ -1,6 +1,7 @@
 #! /bin/bash
 if [ "$#" -ne 1 ]; then
-    echo "Usage: ./validate.sh path_to_raml"
+    echo "Usage: $0 path_to_raml" >&2
+    exit 1
 else
-    java  -jar ../raml-validator-assembly-1.0.jar -r $1 -v 
+    java -jar target/scala-2.11/raml-validator-assembly-1.0.jar -r $1 -v 
 fi
