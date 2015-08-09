@@ -24,13 +24,13 @@ I assumes name raml file is called *api.raml*.
 You can validate a raml file using:
 
 ```
-    .\validate.sh path_to_raml
+    scripts/linux/validate.sh path_to_raml
 ```
 
 and compile raml into one file with:
 
 ```
-    .\compile.sh path_to_raml new_raml_file
+    scripts/linux/compile.sh path_to_raml new_raml_file
 ```
 
 ## Using jar file
