@@ -30,6 +30,7 @@ object Main {
             println("Failed in parsing your raml")
             println(ValidationLogger.history.head)
             println("Exception message : \n" + e.getMessage)
+            sys.exit(2)
           }
         }
       }
@@ -50,12 +51,14 @@ object Main {
             println("Failed in parsing your raml")
             println(ValidationLogger.history.head)
             println("Exception message : \n" + e.getMessage)
+            sys.exit(2)
           }
         }
 
       }
     } else {
       println(usage)
+      sys.exit(1)
     }
 
   }
